@@ -1,0 +1,9 @@
+*.js linguist-language=Java
+*.css linguist-language=Java
+*.html linguist-language=Java
+*.ftl linguist-language=Java
+*.log
+*.zip
+* text eol=lf
+* text auto=false
+
