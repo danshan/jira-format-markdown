@@ -1,0 +1,11 @@
+language: java
+
+jdk:
+  - openjdk8
+
+before_install:
+  - export TZ=Asia/Shanghai
+script: mvn clean package -B -V
+
+notifications:
+  slack: shanhonghao:pdqZbe3SSqGZahgfKsddxPE5
