@@ -9,31 +9,39 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jira-format-markdown-tools</artifactId>
+  <artifactId>jira-format-markdown-cli</artifactId>
 
   <packaging>jar</packaging>
 
-  <name>jira-format-markdown-tools</name>
+  <name>jira-format-markdown-cli</name>
   <description>This is a lib for converting Jira wiki-renderer format to github markdown.</description>
 
   <!-- Properties -->
   <properties>
+    <picocli.version>4.1.4</picocli.version>
     <sonar.tests>src/test/groovy</sonar.tests>
+
+    <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
   </properties>
 
   <!-- Dependencies -->
   <dependencies>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <scope>provided</scope>
+      <groupId>com.github.danshan</groupId>
+      <artifactId>jira-format-markdown-tools</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
+
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <scope>provided</scope>
     </dependency>
 
+    <dependency>
+      <groupId>info.picocli</groupId>
+      <artifactId>picocli</artifactId>
+      <version>${picocli.version}</version>
+    </dependency>
 
     <!-- test -->
     <dependency>
@@ -51,6 +59,41 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>info.picocli</groupId>
+              <artifactId>picocli-codegen</artifactId>
+              <version>${picocli.version}</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-Aproject=${groupId}/${artifactId}</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${maven-assembly-plugin.version}</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>com.github.danshan.jiraformatmd.cli.Application</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.codehaus.gmavenplus</groupId>

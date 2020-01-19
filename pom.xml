@@ -39,6 +39,7 @@
 
   <modules>
     <module>jira-format-markdown-tools</module>
+    <module>jira-format-markdown-cli</module>
   </modules>
 
   <!-- Dependencies -->
