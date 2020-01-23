@@ -11,11 +11,30 @@
   <name>jira-format-markdown</name>
   <description>This is a lib for converting Jira wiki-renderer format to github markdown.</description>
 
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
   <scm>
     <connection>scm:git:https://github.com/danshan/jira-format-markdown.git</connection>
     <url>https://github.com/danshan/jira-format-markdown</url>
     <developerConnection>scm:git:https://github.com/danshan/jira-format-markdown.git</developerConnection>
   </scm>
+
+  <developers>
+    <developer>
+      <name>shanhonghao</name>
+      <id>shanhonghao</id>
+      <email>i@shanhh.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
 
   <!-- Properties -->
   <properties>
@@ -173,5 +192,16 @@
       </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
 </project>
