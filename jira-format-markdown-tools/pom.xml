@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.danshan</groupId>
     <artifactId>jira-format-markdown</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
 
   <artifactId>jira-format-markdown-tools</artifactId>
